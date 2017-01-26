@@ -6,6 +6,10 @@ planet.loadPlugin(planetaryjs.plugins.earth({
   topojson: { file: 'world-110m.json' }
 }));
 
+planet.loadPlugin(planetaryjs.plugins.zoom({
+    scaleExtent: [350, 800]
+  }));
+
 planet.loadPlugin(planetaryjs.plugins.drag({
     // Dragging the globe should pause the
     // automatic rotation until we release the mouse.
@@ -18,7 +22,7 @@ planet.loadPlugin(planetaryjs.plugins.drag({
   }));
 
 // Make the planet fit well in its canvas
-planet.projection.scale(350).translate([350, 350]).rotate([0, -10, 0]);
+planet.projection.scale(250).translate([350, 350]).rotate([0, 0, 0]);
 
 
 var canvas = document.getElementById('globe');
