@@ -1,7 +1,7 @@
 (function() {
   var globe = planetaryjs.planet();
   // Load our custom `autorotate` plugin; see below.
-  globe.loadPlugin(autorotate(10));
+globe.loadPlugin(autorotate(10));
 // You can remove this statement if `world-110m.json`
 // is in the same path as the HTML page:
 globe.loadPlugin(planetaryjs.plugins.earth({
@@ -35,7 +35,7 @@ var canvas = document.getElementById('rotatingGlobe');
     context.scale(2, 2);
   }
   // Draw that globe!
-  globe.draw(canvas);
+globe.draw(canvas);
 
 function autorotate(degPerSec) {
     // Planetary.js plugins are functions that take a `planet` instance
