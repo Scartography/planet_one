@@ -3,7 +3,7 @@ var planet = planetaryjs.planet();
 // is in the same path as the HTML page:
 planet.loadPlugin(autorotate(10));
 planet.loadPlugin(planetaryjs.plugins.earth({
-  topojson: { file: 'world-110m.json' }
+  
 }));
 
 planet.loadPlugin(planetaryjs.plugins.drag({
@@ -12,6 +12,9 @@ planet.loadPlugin(planetaryjs.plugins.drag({
     onDragStart: function() {
       this.plugins.autorotate.pause();
     },
+    onDragEnd: function() {
+      this.plugins.autorotate.resume();
+    }
   }));
 
 
