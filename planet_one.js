@@ -37,3 +37,4 @@ var canvas = document.getElementById('rotatingGlobe');
   // Draw that globe!
 globe.draw(canvas);
 
+})();
