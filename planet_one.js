@@ -1,5 +1,3 @@
-
-
 var planet = planetaryjs.planet();
 // You can remove this statement if `world-110m.json`
 // is in the same path as the HTML page:
