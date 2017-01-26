@@ -10,3 +10,14 @@ planet.loadPlugin(planetaryjs.plugins.drag());
 planet.projection.scale(250).translate([250, 250]);
 var canvas = document.getElementById('globe');
 planet.draw(canvas);
+
+function autorotate(degPerSec) {
+    // Planetary.js plugins are functions that take a `planet` instance
+    // as an argument...
+    return function(planet) {
+      var lastTick = null;
+      var paused = false;
+      planet.plugins.autorotate = {
+        pause:  function() { paused = true;  },
+        resume: function() { paused = false; }
+      };
