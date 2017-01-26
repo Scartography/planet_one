@@ -1,15 +1,23 @@
-function() {
-  var canvas = document.getElementById('basicGlobe');
-  var planet = planetaryjs.planet();
-  // Loading this plugin technically happens automatically,
-  // but we need to specify the path to the `world-110m.json` file.
-  planet.loadPlugin(planetaryjs.plugins.earth({
-    topojson: { file: '/world-110m.json' }
-  }));
-  // Scale the planet's radius to half the canvas' size
-  // and move it to the center of the canvas.
-  planet.projection
-    .scale(canvas.width / 2)
-    .translate([canvas.width / 2, canvas.height / 2]);
-  planet.draw(canvas);
-}
+var planet = planetaryjs.planet();
+
+planet.loadPlugin(planetaryjs.plugins.oceans({
+  fill: 'cyan'
+}));
+
+planet.loadPlugin(planetaryjs.plugins.drag());
+
+planet.loadPlugin(function(planet) {
+  planet.onDraw(function () {
+    planet.withSavedContext(function (context) {
+      var arc = {type: "LineString", coordinates: [[40, 30], [40, -50]]};
+      context.beginPath();
+      planet.path.context(context)(arc);
+      context.stroke();
+      context.closePath();
+    });
+  });
+});
+
+planet.projection.scale(250).translate([250, 250]);
+var canvas = document.getElementById('globe');
+planet.draw(canvas);
