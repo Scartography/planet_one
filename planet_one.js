@@ -1,4 +1,4 @@
-(function() {
+function() {
   var canvas = document.getElementById('basicGlobe');
   var planet = planetaryjs.planet();
   // Loading this plugin technically happens automatically,
@@ -12,4 +12,4 @@
     .scale(canvas.width / 2)
     .translate([canvas.width / 2, canvas.height / 2]);
   planet.draw(canvas);
-})();
+}
