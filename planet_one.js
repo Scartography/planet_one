@@ -4,7 +4,7 @@
   // Loading this plugin technically happens automatically,
   // but we need to specify the path to the `world-110m.json` file.
   planet.loadPlugin(planetaryjs.plugins.earth({
-    topojson: { file: '/world-110m.json' }
+    topojson: { 'world-110m.json' }
   }));
   // Scale the planet's radius to half the canvas' size
   // and move it to the center of the canvas.
