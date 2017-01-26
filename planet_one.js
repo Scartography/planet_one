@@ -11,8 +11,17 @@ planet.loadPlugin(planetaryjs.plugins.earth({
 planet.loadPlugin(planetaryjs.plugins.drag());
 
 planet.projection.scale(250).translate([250, 250]);
-var canvas = document.getElementById('globe');
-planet.draw(canvas);
+var canvas = document.getElementById('rotatingGlobe');
+  // Special code to handle high-density displays (e.g. retina, some phones)
+  // In the future, Planetary.js will handle this by itself (or via a plugin).
+  if (window.devicePixelRatio == 2) {
+    canvas.width = 800;
+    canvas.height = 800;
+    context = canvas.getContext('2d');
+    context.scale(2, 2);
+  }
+  // Draw that globe!
+  globe.draw(canvas);
 
 function autorotate(degPerSec) {
     // Planetary.js plugins are functions that take a `planet` instance
@@ -42,3 +51,4 @@ function autorotate(degPerSec) {
       });
     };
   };
+})();
