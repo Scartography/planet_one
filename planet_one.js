@@ -3,7 +3,7 @@ var planet = planetaryjs.planet();
 // is in the same path as the HTML page:
 planet.loadPlugin(autorotate(10));
 planet.loadPlugin(planetaryjs.plugins.earth({
-  
+  topojson: { file: 'world-110m.json' }
 }));
 
 planet.loadPlugin(planetaryjs.plugins.drag({
@@ -16,7 +16,6 @@ planet.loadPlugin(planetaryjs.plugins.drag({
       this.plugins.autorotate.resume();
     }
   }));
-
 
 // Make the planet fit well in its canvas
 planet.projection.scale(350).translate([350, 350]).rotate([0, -10, 0]);
